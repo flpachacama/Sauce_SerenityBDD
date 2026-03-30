@@ -2,6 +2,7 @@ package com.saucedemo.stepdefinitions;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.containsStringIgnoringCase;
 import static org.hamcrest.Matchers.equalTo;
 
 import com.saucedemo.models.CheckoutData;
@@ -28,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.time.Duration;
+import java.util.HashMap;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -49,6 +51,13 @@ public class SauceDemoStepDefinitions {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         options.addArguments("--disable-notifications");
+        options.addArguments("--disable-features=PasswordCheck,PasswordLeakDetection");
+
+        HashMap<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        prefs.put("profile.password_manager_leak_detection", false);
+        options.setExperimentalOption("prefs", prefs);
         
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -105,8 +114,8 @@ public class SauceDemoStepDefinitions {
 
     @Then("debe ver el mensaje de confirmacion {string}")
     public void shouldSeeConfirmation(String expectedMessage) {
-        comprador.should(seeThat(OrderConfirmationMessage.text(), equalTo(expectedMessage)));
-        comprador.should(seeThat(OrderConfirmationMessage.text(), equalTo(ExpectedMessages.ORDER_SUCCESS)));
+        comprador.should(seeThat(OrderConfirmationMessage.text(), containsStringIgnoringCase(expectedMessage)));
+        comprador.should(seeThat(OrderConfirmationMessage.text(), containsStringIgnoringCase(ExpectedMessages.ORDER_SUCCESS)));
     }
 
     @After

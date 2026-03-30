@@ -14,6 +14,9 @@ public class CartBadgeCount implements Question<Integer> {
     @Override
     public Integer answeredBy(Actor actor) {
         String badge = Text.of(InventoryPage.CART_BADGE).answeredBy(actor);
-        return Integer.parseInt(badge);
+        if (badge == null || badge.trim().isEmpty()) {
+            return 0;
+        }
+        return Integer.parseInt(badge.trim());
     }
 }

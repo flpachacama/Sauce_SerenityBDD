@@ -1,0 +1,7 @@
+Conclusiones del ejercicio E2E - SauceDemo
+
+1. Se implemento el flujo completo de compra con enfoque Screenplay, separando acciones (Tasks), validaciones (Questions) y localizadores (UI).
+2. La automatizacion valida el resultado critico del negocio: mensaje final "THANK YOU FOR YOUR ORDER".
+3. El escenario en Gherkin permite entender rapidamente el comportamiento esperado por usuarios tecnicos y no tecnicos.
+4. La estructura creada es mantenible y escalable para agregar mas escenarios (filtros, errores de login, removidos de carrito, etc.).
+5. Serenity aporta trazabilidad mediante reportes detallados por paso, lo que facilita analisis de fallas y evidencia de ejecucion.

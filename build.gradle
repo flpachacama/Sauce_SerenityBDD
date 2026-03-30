@@ -17,6 +17,7 @@ repositories {
 
 ext {
     serenityVersion = '4.2.34'
+    cucumberVersion = '7.14.1'
 }
 
 dependencies {
@@ -25,7 +26,10 @@ dependencies {
     testImplementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
+    testImplementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'io.github.bonigarcia:webdrivermanager:5.6.2'
 }
 
 test {

@@ -10,7 +10,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/saucedemo/compra_e2e.feature",
         glue = "com.saucedemo.stepdefinitions",
-        snippets = CAMELCASE
+        snippets = CAMELCASE,
+        plugin = {"pretty"}
 )
 public class SauceDemoTest {
 }

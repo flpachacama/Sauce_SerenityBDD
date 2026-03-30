@@ -13,6 +13,6 @@ public class OpenSauceDemo implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(Open.url("/"));
+        actor.attemptsTo(Open.url("https://www.saucedemo.com/"));
     }
 }

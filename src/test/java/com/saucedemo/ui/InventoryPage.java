@@ -5,7 +5,7 @@ import net.serenitybdd.screenplay.targets.Target;
 
 public class InventoryPage {
 
-    private static final String ADD_TO_CART_BUTTON_BY_SLUG = "button[data-test='add-to-cart-%s']";
+    private static final String ADD_TO_CART_BUTTON_BY_SLUG = "css:button[data-test='add-to-cart-%s']";
 
     public static final Target CART_LINK = Target.the("icono del carrito")
             .locatedBy(".shopping_cart_link");

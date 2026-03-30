@@ -1,38 +1,81 @@
 SauceDemo - Automatizacion E2E con Serenity BDD + Cucumber + Screenplay
 
-1) Prerrequisitos
-- Java 11 o superior instalado
+PREREQUISITOS
+=============
+- Java 11 o superior (verificar con: java -version)
 - Google Chrome instalado
-- Acceso a internet para abrir https://www.saucedemo.com/
+- Git (para clonar/subir el repositorio)
 
-2) Estructura principal
-- src/test/resources/features/saucedemo/compra_e2e.feature
-- src/test/resources/serenity.conf
-- src/test/java/com/saucedemo/
-  - runners
-  - stepdefinitions
-  - tasks
-  - questions
-  - ui
-  - models
-  - utils
+INSTALACION
+===========
+1. Clonar o descargar este repositorio
+2. Abrir terminal/PowerShell en la carpeta raiz del proyecto
+3. No se requiere instalacion adicional (Gradle utiliza wrapper)
 
-3) Ejecucion de pruebas (Windows cmd)
-- Ejecutar:
-  gradlew.bat clean test
+EJECUCION DE PRUEBAS
+====================
+Windows (PowerShell/CMD):
+    .\gradlew.bat clean test
+    
+Linux/Mac:
+    ./gradlew clean test
 
-4) Reportes Serenity
-- El build ejecuta aggregate al finalizar test.
-- Abrir el reporte HTML en la carpeta:
-  target/site/serenity/index.html
+Ejecutar y abrir reportes automaticamente (Windows):
+    .\run_tests.bat
 
-5) Flujo cubierto
-- Login con standard_user / secret_sauce
-- Agregar 2 productos
-- Visualizar carrito
-- Completar checkout
-- Finalizar compra y validar: THANK YOU FOR YOUR ORDER
+FLUJO CUBIERTO POR LA AUTOMATIZACION
+=====================================
+1. Abrir https://www.saucedemo.com/
+2. Iniciar sesion con credenciales:
+   - Usuario: standard_user
+   - Clave: secret_sauce
+3. Agregar dos productos al carrito:
+   - Sauce Labs Backpack
+   - Sauce Labs Bike Light
+4. Visualizar el carrito
+5. Completar formulario de checkout:
+   - First Name: Freddy
+   - Last Name: Leonel
+   - Zip Code: 110111
+6. Finalizar compra
+7. Validar mensaje final: "THANK YOU FOR YOUR ORDER"
 
-6) Notas
-- Los productos y datos de checkout se definen en el feature para facilitar mantenimiento.
-- La logica de negocio esta en Tasks y las validaciones en Questions.
+REPORTES SERENITY
+=================
+Los reportes se generan automaticamente en:
+    target/site/serenity/index.html
+
+Abrirlo en un navegador web para ver:
+- Resumen de ejecucion
+- Resultado de cada escenario
+- Capturas de pantalla por accion
+- Trazabilidad completa
+
+ESTRUCTURA DEL PROYECTO
+=======================
+src/test/java/com/saucedemo/
+    ├── runners/              - Configuracion de ejecucion
+    ├── stepdefinitions/      - Definiciones de pasos (Gherkin)
+    ├── tasks/                - Acciones de negocio (Screenplay)
+    ├── questions/            - Validaciones/Preguntas (Screenplay)
+    ├── ui/                   - Localizadores de elementos
+    ├── models/               - Objetos de datos
+    └── utils/                - Utilidades compartidas
+
+src/test/resources/
+    ├── features/             - Archivos .feature (Gherkin)
+    └── serenity.conf         - Configuracion de webdriver
+
+ARCHIVOS IMPORTANTES
+====================
+- AI_Protocol/AI_Workflow.md - Documentacion del workflow
+- LOCATORS.md               - Mapeo de localizadores SauceDemo
+- TROUBLESHOOTING.md        - Solucion de problemas comunes
+- .gitignore                - Archivos excluidos de Git
+
+DUDA O PROBLEMA?
+================
+1. Revisar TROUBLESHOOTING.md
+2. Verificar que Java 11+ este instalado
+3. Ejecutar: gradlew.bat clean compileTestJava
+4. Revisar serenity.conf para configurar locales/idioma

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "checkout_happy",
+    "firstName": "Freddy",
+    "lastName": "Leonel",
+    "zipCode": "110111"
+  },
+  {
+    "id": "checkout_alt",
+    "firstName": "QA",
+    "lastName": "Automation",
+    "zipCode": "050021"
+  }
+]

@@ -13,6 +13,9 @@ public class InventoryPage {
     public static final Target CART_BADGE = Target.the("contador del carrito")
             .locatedBy(".shopping_cart_badge");
 
+    public static final Target INVENTORY_TITLE = Target.the("titulo de inventario")
+            .locatedBy(".title");
+
     private InventoryPage() {
     }
 

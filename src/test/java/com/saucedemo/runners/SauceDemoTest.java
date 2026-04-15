@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/saucedemo/compra_e2e.feature",
+        features = "src/test/resources/features/saucedemo",
         glue = "com.saucedemo.stepdefinitions",
         snippets = CAMELCASE,
         plugin = {"pretty"}

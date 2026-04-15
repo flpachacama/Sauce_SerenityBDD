@@ -1,0 +1,4 @@
+flow_id,description,expected
+login_invalido,Credenciales incorrectas,error_login
+producto_inexistente,Producto no disponible en inventario,producto_no_existe
+carrito_vacio,Intento de checkout sin items,checkout_bloqueado
